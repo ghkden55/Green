@@ -44,6 +44,8 @@ public class Board {
     @Column
     private LocalDateTime update_time;
 
+    @Column
+    private Boolean fileExist;
 
     // 1:다 매핑 (게시글:댓글)
     // 소유(1)와 비소유(다)
@@ -54,12 +56,12 @@ public class Board {
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> comment = new ArrayList<>();
 
-
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<BoardFile> boardFile = new ArrayList<>();
 
+
     @Builder
-    public Board(Long id, String email, String user_name, String boardTitle, String boardContents, LocalDateTime create_time, LocalDateTime update_time) {
+    public Board(Long id, String email, String user_name, String boardTitle, String boardContents, LocalDateTime create_time, LocalDateTime update_time, Boolean fileExist) {
         this.id = id;
         this.email = email;
         this.user_name = user_name;
@@ -67,14 +69,15 @@ public class Board {
         this.boardContents = boardContents;
         this.create_time = create_time;
         this.update_time = update_time;
+        this.fileExist = fileExist;
     }
 
 
     public void updateFromDTO(BoardDTO boardDTO) {
-
         // 모든 변경 사항을 세팅 (현재는 제목과 내용만 있기 때문에 2개만 작성)
         this.boardTitle = boardDTO.getBoardTitle();
         this.boardContents = boardDTO.getBoardContents();
+        this.update_time = boardDTO.getUpdate_time();
     }
 
 }

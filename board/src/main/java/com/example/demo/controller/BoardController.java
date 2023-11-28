@@ -97,9 +97,9 @@ public class BoardController {
 
 
     @PostMapping("/save")
-    public String save(@ModelAttribute BoardDTO boardDTO, FileDTO fileDTO,
+    public String save(@ModelAttribute BoardDTO boardDTO,
                        @RequestParam MultipartFile[] files) throws IOException {
-        boardService.save(boardDTO, fileDTO, files);
+        boardService.save(boardDTO, files);
         return "redirect:/board/";
     }
 

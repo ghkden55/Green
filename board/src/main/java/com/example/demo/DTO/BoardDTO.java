@@ -32,6 +32,8 @@ public class BoardDTO {
     // 최근 수정 시간
     private LocalDateTime update_time;
 
+    private Boolean fileExist;
+
 
     public Board toEntity() {
         return Board.builder()
@@ -40,6 +42,7 @@ public class BoardDTO {
                 .boardTitle(boardTitle)
                 .boardContents(boardContents)
                 .create_time(create_time)
+                .fileExist(fileExist)
                 .update_time(LocalDateTime.now())
                 .build();
     }
@@ -51,7 +54,8 @@ public class BoardDTO {
                 board.getBoardTitle(),
                 board.getBoardContents(),
                 board.getCreate_time(),
-                board.getUpdate_time()
+                board.getUpdate_time(),
+                board.getFileExist()
                 );
     }
 

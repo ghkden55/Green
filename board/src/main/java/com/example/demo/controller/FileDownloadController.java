@@ -13,8 +13,8 @@ import java.nio.file.Paths;
 @RestController
 public class FileDownloadController {
 
-    String path = "C:/Users/G/Desktop/HwangDooHyeon/sql/Board Files/";
-//    String path = "C:/Users/geg55/OneDrive/Desktop/HwangDooHyeon/sql/Board Files/";
+//    String path = "C:/Users/G/Desktop/HwangDooHyeon/sql/Board Files/";
+    String path = "C:/Users/geg55/OneDrive/Desktop/Portfolio/board/downloadTest/";
 
     @GetMapping("/download/{uuid}/{fileName}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String uuid,

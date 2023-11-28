@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.backup;
 
 import com.example.demo.DTO.FileDTO;
 import com.example.demo.entity.BoardFile;
@@ -7,7 +7,6 @@ import com.example.demo.DTO.BoardDTO;
 import com.example.demo.entity.Board;
 
 import com.example.demo.repository.FileRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
@@ -23,15 +22,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Optional;
 import java.util.UUID;
 
 @Transactional(readOnly = true)
 @Service
 @RequiredArgsConstructor
-@Slf4j
-public class BoardService {
+public class BackUpBoardService2 {
 
     private final BoardRepository boardRepository;
     private final FileRepository fileRepository;
@@ -44,46 +41,82 @@ public class BoardService {
 
 
     @Transactional
-    public void save(BoardDTO boardDTO, MultipartFile[] files) throws IOException {
+    public void save(BoardDTO boardDTO, FileDTO fileDTO, MultipartFile[] files) throws IOException {
         boardDTO.setCreate_time(LocalDateTime.now());
+
+        // 업로드 경로
+        Path uploadPath = Paths.get(filePath);
+
+        // 만약 경로가 없다면 -> 생성
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        // UUID
+        String uuid = UUID.randomUUID().toString();
 
         // 게시판을 db에 저장하고, 저장된 게시판의 아이디를 Long id로 지정
         Long id = boardRepository.save(boardDTO.toEntity()).getId();
-
-        // 저장한 게시물을 불러옴
         Board board = boardRepository.findById(id).get();
 
-//        if (files != null && files.length > 0) {
+        // ** 파일 정보 저장
+        for (MultipartFile file : files) {
 
-            // 업로드 경로
-            Path uploadPath = Paths.get(filePath);
+            // 업로드 된 파일명 추출
+            String originalFileName = file.getOriginalFilename();
 
-            // 만약 경로가 없다면 -> 생성
-            if (!Files.exists(uploadPath))
-                Files.createDirectories(uploadPath);
+            // 업로드 된 파일의 확장자 추출
+            String formatType = originalFileName.substring(
+                    originalFileName.lastIndexOf("."));
+
+            // Path
+            String path = filePath + uuid + originalFileName;
+
+            // 경로에 파일을 저장 (db 아님)
+            file.transferTo(new File(path));
+
+            BoardFile boardFile = BoardFile.builder()
+                    .filePath(path)
+                    .fileName(originalFileName)
+                    .uuid(uuid)
+                    .fileType(formatType)
+                    .fileSize(file.getSize())
+                    .board(board)
+                    .build();
+
+            fileRepository.save(boardFile);
+        }
+    }
 
 
-            // ** 파일 정보 저장
-            for (MultipartFile file : files) {
+    private String createFilePath(MultipartFile file) throws IOException {
 
-                // Path
-                String path = filePath + createuuid() + createFileName(file);
+        // 업로드 경로
+        Path uploadPath = Paths.get(filePath);
 
-                // 경로에 파일을 저장 (db 아님)
-                file.transferTo(new File(path));
+        // 만약 경로가 없다면 -> 생성
+        if(!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
 
-                BoardFile boardFile = BoardFile.builder()
-                        .filePath(path)
-                        .fileName(createFileName(file))
-                        .uuid(createuuid())
-                        .fileType(createFileType(file))
-                        .fileSize(file.getSize())
-                        .board(board)
-                        .build();
+        // 업로드 된 파일명 추출
+        String originalFileName = file.getOriginalFilename();
 
-                fileRepository.save(boardFile);
-            }
-//        }
+        // UUID
+        String uuid = UUID.randomUUID().toString();
+
+        // 저장할 파일의 경로 설정
+        Path path = uploadPath.resolve(
+                uuid + originalFileName
+        );
+
+        Files.copy(
+                file.getInputStream(),
+                path,
+                StandardCopyOption.REPLACE_EXISTING
+        );
+
+        return String.valueOf(path);
     }
 
 
@@ -97,12 +130,6 @@ public class BoardService {
     }
 
 
-    private String createuuid() {
-        String uuid = UUID.randomUUID().toString();
-        return uuid;
-    }
-
-
     private String createFileType(MultipartFile file) {
         String originalFileName = file.getOriginalFilename();
         String formatType = "";
@@ -112,6 +139,13 @@ public class BoardService {
                     originalFileName.lastIndexOf("."));
         } return formatType;
 
+    }
+
+
+    private Long createFileSize(MultipartFile file) {
+        Long fileSize = file.getSize();
+
+        return fileSize;
     }
 
 
@@ -157,8 +191,6 @@ public class BoardService {
         Optional<Board> boardOptional = boardRepository.findById(boardDTO.getId());
 
         Board board = boardOptional.get();
-
-        boardDTO.setUpdate_time(LocalDateTime.now());
 
         board.updateFromDTO(boardDTO);
 
