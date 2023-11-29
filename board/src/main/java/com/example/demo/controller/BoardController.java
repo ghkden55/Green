@@ -70,8 +70,9 @@ public class BoardController {
 
     // 변경 후 데이터를 db에 넣어줌
     @PostMapping("/updatePost")
-    public String updatePost(@ModelAttribute BoardDTO boardDTO) {
-        boardService.updatePost(boardDTO);
+    public String updatePost(@ModelAttribute BoardDTO boardDTO,
+                             @RequestParam MultipartFile[] files) throws IOException {
+        boardService.updatePost(boardDTO, files);
         return "redirect:/board/";
     }
 

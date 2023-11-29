@@ -47,13 +47,19 @@ public class BoardService {
     public void save(BoardDTO boardDTO, MultipartFile[] files) throws IOException {
         boardDTO.setCreate_time(LocalDateTime.now());
 
+        if (!files[0].isEmpty()) {
+            boardDTO.setFileExist(true);
+        } else {
+            boardDTO.setFileExist(false);
+        }
+
         // 게시판을 db에 저장하고, 저장된 게시판의 아이디를 Long id로 지정
         Long id = boardRepository.save(boardDTO.toEntity()).getId();
 
         // 저장한 게시물을 불러옴
         Board board = boardRepository.findById(id).get();
 
-        if (!files[0].isEmpty()) {
+        if (board.getFileExist()) {
 
             // 업로드 경로
             Path uploadPath = Paths.get(filePath);
@@ -153,7 +159,7 @@ public class BoardService {
 
 
     @Transactional
-    public void updatePost(BoardDTO boardDTO) {
+    public void updatePost(BoardDTO boardDTO, MultipartFile[] files) throws IOException {
         Optional<Board> boardOptional = boardRepository.findById(boardDTO.getId());
 
         Board board = boardOptional.get();
@@ -164,6 +170,41 @@ public class BoardService {
 
         boardRepository.save(board);
 
+        if (board.getFileExist()) {
+            fileRepository.deleteById(board.getId());
+        }
+
+        if (!files[0].isEmpty()) {
+
+            // 업로드 경로
+            Path uploadPath = Paths.get(filePath);
+
+            // 만약 경로가 없다면 -> 생성
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
+            // ** 파일 정보 저장
+            for (MultipartFile file : files) {
+
+                // Path
+                String path = filePath + createuuid() + createFileName(file) + createFileType(file);
+
+                // 경로에 파일을 저장 (db 아님)
+                file.transferTo(new File(path));
+
+                BoardFile boardFile = BoardFile.builder()
+                        .filePath(path)
+                        .fileName(createFileName(file))
+                        .uuid(createuuid())
+                        .fileType(createFileType(file))
+                        .fileSize(file.getSize())
+                        .board(board)
+                        .build();
+
+                fileRepository.save(boardFile);
+            }
+        }
     }
 
 
