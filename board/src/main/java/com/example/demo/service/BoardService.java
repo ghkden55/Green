@@ -37,10 +37,10 @@ public class BoardService {
     private final FileRepository fileRepository;
 
     // 학원에서는 /G/
-//    String filePath = "C:/Users/G/Desktop/HwangDooHyeon/sql/Board Files/";
+    String filePath = "C:/Users/G/Desktop/Portfolio/board/downloadTest/";
 
     // 집에서는 /본인 Pc 이름/
-    String filePath = "C:/Users/geg55/OneDrive/Desktop/Portfolio/board/downloadTest/";
+//    String filePath = "C:/Users/geg55/OneDrive/Desktop/Portfolio/board/downloadTest/";
 
 
     @Transactional
@@ -53,21 +53,21 @@ public class BoardService {
         // 저장한 게시물을 불러옴
         Board board = boardRepository.findById(id).get();
 
-//        if (files != null && files.length > 0) {
+        if (!files[0].isEmpty()) {
 
             // 업로드 경로
             Path uploadPath = Paths.get(filePath);
 
             // 만약 경로가 없다면 -> 생성
-            if (!Files.exists(uploadPath))
+            if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
-
+            }
 
             // ** 파일 정보 저장
             for (MultipartFile file : files) {
 
                 // Path
-                String path = filePath + createuuid() + createFileName(file);
+                String path = filePath + createuuid() + createFileName(file) + createFileType(file);
 
                 // 경로에 파일을 저장 (db 아님)
                 file.transferTo(new File(path));
@@ -83,7 +83,7 @@ public class BoardService {
 
                 fileRepository.save(boardFile);
             }
-//        }
+        }
     }
 
 
@@ -163,6 +163,7 @@ public class BoardService {
         board.updateFromDTO(boardDTO);
 
         boardRepository.save(board);
+
     }
 
 
