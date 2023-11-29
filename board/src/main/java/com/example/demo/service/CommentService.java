@@ -50,4 +50,11 @@ public class CommentService {
         }
         return commentDTOList;
     }
+
+
+    @Transactional
+    public void delete(Long id) {
+        commentRepository.deleteById(id);
+    }
+
 }
