@@ -52,6 +52,23 @@ public class CommentService {
     }
 
 
+    public Optional<Comment> findById(Long id) {
+        return commentRepository.findById(id);
+    }
+
+
+    @Transactional
+    public void update(CommentDTO commentDTO) {
+        Optional<Comment> commentOptional = commentRepository.findById(commentDTO.getId());
+
+        Comment comment = commentOptional.get();
+
+        comment.updateFromDTO(commentDTO);
+
+        commentRepository.save(comment);
+    }
+
+
     @Transactional
     public void delete(Long id) {
         commentRepository.deleteById(id);
