@@ -48,8 +48,8 @@
         <!--        writer: <input type="text" name="user_name">-->
         <!--        email: <input type="text" name="email"> <br><br>-->
         <!--        pass: <input type="text" name="boardPass"> <br>-->
-        title: <input type="text" name="boardTitle"> <br><br>
-        contents: <br><textarea name="boardContents" cols="30" rows="10"></textarea> <br>
+        title: <input type="text" name="boardTitle" th:value="${board.boardTitle}"> <br><br>
+        contents: <br><textarea name="boardContents" cols="30" rows="10" th:value="${board.getBoardContents()}" th:text="${board.getBoardContents()}"></textarea>
         boardFile: <input type="file" name="files" multiple> <br><br>
         <input type="submit" value="수정">
 
