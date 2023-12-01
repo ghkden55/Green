@@ -138,7 +138,7 @@ public class BoardService {
         int page = pageable.getPageNumber() -1;
 
         // 페이지 당 개시물 수
-        int size = 5;
+        int size = 10;
 
         // 전체 게시물을 불러 온다.
         Page<Board> boards = boardRepository.findAll(
@@ -166,16 +166,11 @@ public class BoardService {
 
         boardDTO.setUpdate_time(LocalDateTime.now());
 
-        board.updateFromDTO(boardDTO);
-
-        boardRepository.save(board);
-
         if (board.getFileExist()) {
-            fileRepository.deleteById(board.getId());
+            fileRepository.deleteByBoardId(board.getId());
         }
 
         if (!files[0].isEmpty()) {
-
             // 업로드 경로
             Path uploadPath = Paths.get(filePath);
 
@@ -186,7 +181,6 @@ public class BoardService {
 
             // ** 파일 정보 저장
             for (MultipartFile file : files) {
-
                 // Path
                 String path = filePath + createuuid() + createFileName(file) + createFileType(file);
 
@@ -203,8 +197,15 @@ public class BoardService {
                         .build();
 
                 fileRepository.save(boardFile);
+                boardDTO.setFileExist(true);
             }
+        } else {
+            boardDTO.setFileExist(false);
         }
+
+        board.updateFromDTO(boardDTO);
+
+        boardRepository.save(board);
     }
 
 

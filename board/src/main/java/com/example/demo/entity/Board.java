@@ -74,10 +74,10 @@ public class Board {
 
 
     public void updateFromDTO(BoardDTO boardDTO) {
-        // 모든 변경 사항을 세팅 (현재는 제목과 내용만 있기 때문에 2개만 작성)
         this.boardTitle = boardDTO.getBoardTitle();
         this.boardContents = boardDTO.getBoardContents();
         this.update_time = boardDTO.getUpdate_time();
+        this.fileExist = boardDTO.getFileExist();
     }
 
 }

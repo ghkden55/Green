@@ -15,7 +15,7 @@ public class BoardFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long fildId;
+    private Long fileId;
 
     // 파일 경로
     @Column
@@ -43,8 +43,8 @@ public class BoardFile {
     private Board board;
 
     @Builder
-    public BoardFile(Long fildId, String filePath, String fileName, String uuid, String fileType, Long fileSize, Board board) {
-        this.fildId = fildId;
+    public BoardFile(Long fileId, String filePath, String fileName, String uuid, String fileType, Long fileSize, Board board) {
+        this.fileId = fileId;
         this.filePath = filePath;
         this.fileName = fileName;
         this.uuid = uuid;
