@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+
 @ControllerAdvice
 public class GeneralExceptionHandler {
 
@@ -40,10 +41,25 @@ public class GeneralExceptionHandler {
         return new ResponseEntity<>(e.body(), e.status());
     }
 
-    // ** 위 예외를 제외한 모든 예외 처리
+    // ** 위 예외를 제외한 모든 예외처리
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> unknownServerError(Exception e) {
         ApiUtils.ApiResult<?> apiResult = ApiUtils.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(apiResult, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
