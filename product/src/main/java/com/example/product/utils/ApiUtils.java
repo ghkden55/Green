@@ -27,9 +27,11 @@ public class ApiUtils {
         return new ApiResult<T>(true, response, null);
     }
 
+
     public static <T> ApiResult<T> error(String message, HttpStatus httpStatus){
         return new ApiResult<T>(false, null, new ApiError(message, httpStatus.value()));
     }
+
 
     // ** JSON으로 반환해야할 데이터.
     @AllArgsConstructor @Getter
@@ -47,6 +49,7 @@ public class ApiUtils {
         }
     }
 
+
     @AllArgsConstructor @Getter
     public static class ApiError{
         private final String message;
@@ -58,4 +61,6 @@ public class ApiUtils {
                     .toString();
         }
     }
+
+
 }
