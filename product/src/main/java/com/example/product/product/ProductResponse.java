@@ -2,6 +2,7 @@ package com.example.product.product;
 
 import com.example.product.option.Option;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -14,6 +15,7 @@ public class ProductResponse {
 
     @Getter
     @Setter
+    @NoArgsConstructor
     public static class FindAllDTO {
         private Long id;
 

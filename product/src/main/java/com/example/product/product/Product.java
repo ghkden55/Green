@@ -33,5 +33,13 @@ public class Product {
     // 수량
     //private int quantity;
 
-}
 
+    public void update(ProductResponse.FindAllDTO updateDTO){
+        this.productName = updateDTO.getProductName();
+        this.description = updateDTO.getDescription();
+        this.image = updateDTO.getImage();
+        this.price = updateDTO.getPrice();
+    }
+
+
+}

@@ -16,6 +16,7 @@ public class ProductController {
     // RestController이기 때문에 에러 적어 줘야 함
 
     // 전체 상품 확인
+    // 페이지를 int로 사용. db까지 접근을 한다면 Long을 쓰는 게 더 유리함.
     @GetMapping("/products")
     public ResponseEntity<?> findAll(@RequestParam(defaultValue = "0") int page) {
         List<ProductResponse.FindAllDTO> productDTOS = productService.findAll(page);
@@ -31,6 +32,16 @@ public class ProductController {
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(productDTOS);
         return ResponseEntity.ok(apiResult);
     }
+
+
+    @PutMapping("/products/{id}")
+    public ResponseEntity<?> updateProduct(@RequestBody ProductResponse.FindAllDTO findAllDTO){
+        productService.update(findAllDTO);
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
+        return ResponseEntity.ok(apiResult);
+
+    }
+
 
 
     @DeleteMapping("/products/{id}")
