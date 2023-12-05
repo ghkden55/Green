@@ -2,7 +2,7 @@ package com.example.product.product;
 
 import com.example.product.error.exception.Exception404;
 import com.example.product.option.Option;
-import com.example.product.option.OptionRepositry;
+import com.example.product.option.OptionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final OptionRepositry optionRepositry;
+    private final OptionRepository optionRepository;
 
 
     // 전체 상품 검색
@@ -28,11 +29,11 @@ public class ProductService {
         Pageable pageable = PageRequest.of(page,3);
         Page<Product> productPage = productRepository.findAll(pageable);
 
-        List<ProductResponse.FindAllDTO> productDtos
-                = productPage.getContent().stream().map(ProductResponse.FindAllDTO::new)
+        List<ProductResponse.FindAllDTO> productDTOS =
+                productPage.getContent().stream().map(ProductResponse.FindAllDTO::new) // ::new = 기본생성자를 새로 생성한다.
                 .collect(Collectors.toList());
 
-        return productDtos;
+        return productDTOS;
     }
 
 
@@ -46,12 +47,22 @@ public class ProductService {
         // 내가 상품 하나를 찾았는 데, 그 하나에 들어 있는 제품이 하나가 아닐 수 있어
 
         // 따라서 id를 product.getId()로 Option 상품 검색
-        List<Option> optionList = optionRepositry.findByProductId(product.getId());
+        List<Option> optionList = optionRepository.findByProductId(product.getId());
 
         // 반환 값이 이게 아니기 때문에 오류 남 // 옵셔널로 반환해야하는데 // 리스트로 해버리니까..
 
         // 검색이 완료된 제품 반환
         return new ProductResponse.FindByIdDTO(product, optionList);
+    }
+
+
+    @Transactional
+    public void update(ProductResponse.FindAllDTO findAllDTO){
+        Optional<Product> optionalProduct = productRepository.findById(findAllDTO.getId());
+
+        optionalProduct.ifPresent(product -> {
+            product.update(findAllDTO);
+        });
     }
 
 
