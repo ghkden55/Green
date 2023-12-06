@@ -3,9 +3,7 @@ package com.example.product.option;
 import com.example.product.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,6 +12,15 @@ import java.util.List;
 public class OptionController {
 
     private final OptionService optionService;
+
+    @PostMapping("/options/save")
+    public ResponseEntity<?> save(@RequestBody OptionResponse.FindByProductIdDTO optionDTO){
+        Option saveProduct = optionService.save(optionDTO);
+
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(saveProduct);
+        return ResponseEntity.ok(apiResult);
+    }
+
 
     /**
      * @param id
@@ -47,6 +54,15 @@ public class OptionController {
 
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(optionResponses);
 
+        return ResponseEntity.ok(apiResult);
+    }
+
+
+    @DeleteMapping("/delete/{id}/options/{optionId}")
+    public ResponseEntity<?> delete(@PathVariable Long id, @PathVariable Long optionId){
+        optionService.delete(id, optionId);
+
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success("success");
         return ResponseEntity.ok(apiResult);
     }
 
