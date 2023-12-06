@@ -22,6 +22,12 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final OptionRepository optionRepository;
 
+    @Transactional
+    public Product save(Product product) {
+        Product saveProduct = productRepository.save(product);
+        return saveProduct;
+    }
+
 
     // 전체 상품 검색
     public List<ProductResponse.FindAllDTO> findAll(int page) {

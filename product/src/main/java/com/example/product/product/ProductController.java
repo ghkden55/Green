@@ -13,6 +13,14 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
+    @PostMapping("/save")
+    public ResponseEntity<?> save(@RequestBody Product product){
+        Product save = productService.save(product);
+
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(save);
+        return ResponseEntity.ok(apiResult);
+    }
+
     // RestController이기 때문에 에러 적어 줘야 함
 
     // 전체 상품 확인
