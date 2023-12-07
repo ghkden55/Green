@@ -1,5 +1,6 @@
 package com.example.product.product;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,11 +29,17 @@ public class Product {
     private String image;
 
     // 가격
+    @Column(nullable = false)
     private int price;
 
-    // 수량
-    //private int quantity;
-
+    @Builder
+    public Product(Long id, String productName, String description, String image, int price) {
+        this.id = id;
+        this.productName = productName;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+    }
 
     public void update(ProductResponse.FindAllDTO updateDTO){
         this.productName = updateDTO.getProductName();
@@ -40,6 +47,5 @@ public class Product {
         this.image = updateDTO.getImage();
         this.price = updateDTO.getPrice();
     }
-
 
 }

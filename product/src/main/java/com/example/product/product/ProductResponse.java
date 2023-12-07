@@ -4,19 +4,16 @@ import com.example.product.option.Option;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@NoArgsConstructor
 public class ProductResponse {
-
 
     @Getter
     @Setter
-    @NoArgsConstructor
-    public static class FindAllDTO {
+    public static class SaveDTO {
+
         private Long id;
 
         private String productName;
@@ -27,7 +24,32 @@ public class ProductResponse {
 
         private int price;
 
-        //private int quantity; // 수량은 옵션에 들어갈 것 이므로 나중에 삭제 가능성
+        public Product toEntity() {
+            return Product.builder()
+                    .productName(productName)
+                    .description(description)
+                    .image(image)
+                    .price(price)
+                    .build();
+        }
+
+    }
+
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class FindAllDTO {
+
+        private Long id;
+
+        private String productName;
+
+        private String description;
+
+        private String image;
+
+        private int price;
 
         public FindAllDTO(Product product) {
             this.id = product.getId();
@@ -54,8 +76,6 @@ public class ProductResponse {
         private int price;
 
         private List<OptionDTO> optionList;
-
-        //private int quantity; // 수량은 옵션에 들어갈 것 이므로 나중에 삭제 가능성
 
         public FindByIdDTO(Product product, List<Option> optionList) {
             this.id = product.getId();

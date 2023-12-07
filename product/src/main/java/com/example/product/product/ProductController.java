@@ -1,6 +1,5 @@
 package com.example.product.product;
 
-import com.example.product.option.Option;
 import com.example.product.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +10,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class ProductController {
+
     private final ProductService productService;
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Product product){
+    public ResponseEntity<?> save(@RequestBody ProductResponse.SaveDTO product){
         Product save = productService.save(product);
 
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(save);

@@ -23,8 +23,8 @@ public class ProductService {
     private final OptionRepository optionRepository;
 
     @Transactional
-    public Product save(Product product) {
-        Product saveProduct = productRepository.save(product);
+    public Product save(ProductResponse.SaveDTO product) {
+        Product saveProduct = productRepository.save(product.toEntity());
         return saveProduct;
     }
 

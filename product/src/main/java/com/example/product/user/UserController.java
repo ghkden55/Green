@@ -46,6 +46,7 @@ public class UserController {
         userRepository.save(requestDTO.toEntity());
 
         return ResponseEntity.ok(ApiUtils.success(null));
+
     }
 
 
