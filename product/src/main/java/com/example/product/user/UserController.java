@@ -74,7 +74,7 @@ public class UserController {
             throw new Exception401("인증 되지 않음.");
         }
 
-        return ResponseEntity.ok().header(JwtTokenProvider.HEADER, jwt).body(ApiUtils.success(null));
+        return ResponseEntity.ok().header(JwtTokenProvider.HEADER, jwt).body(ApiUtils.success(jwt));
 
     }
 

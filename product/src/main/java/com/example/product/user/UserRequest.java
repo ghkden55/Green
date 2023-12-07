@@ -37,7 +37,7 @@ public class UserRequest {
                     .password(password)
 //                    .username(username)
 //                    .phoneNumber(phoneNumber)
-                    .roles(Collections.singletonList("ROLE_USER"))
+                    .roles(Collections.singletonList("ROLE_ADMIN"))
                     .build();
         }
     }
