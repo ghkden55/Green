@@ -23,7 +23,7 @@ public class CartController {
     @PostMapping("/carts/add")
     public ResponseEntity<?> addCartList(
             @RequestBody @Valid List<CartRequest.SaveDTO> requestDTO,
-            @AuthenticationPrincipal CustomUserDetails customUserDetails,
+            @AuthenticationPrincipal CustomUserDetails customUserDetails, // User의 인정 정보.
             Error error) {
 
         cartService.addCartList(requestDTO, customUserDetails.getUser());
@@ -42,12 +42,14 @@ public class CartController {
     }
 
 
+    // 카트 업데이트
     @GetMapping("/carts/update")
     public ResponseEntity<?> update(@RequestBody @Valid List<CartRequest.UpdateDTO> requestDTO,
                                    @AuthenticationPrincipal CustomUserDetails customUserDetails,
                                    Error error) {
 
         CartResponse.UpdateDTO updateDTO = cartService.update(requestDTO, customUserDetails.getUser());
+
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(updateDTO);
         return ResponseEntity.ok(apiResult);
     }

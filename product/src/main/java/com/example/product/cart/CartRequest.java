@@ -15,6 +15,7 @@ public class CartRequest {
 
         private Long quantity;
 
+        // 인증 정보가 필요하기 때문에 User는 매개변수로 항상 존재 해야함.
         public Cart toEntity(Option option, User user) {
             return Cart.builder()
                     .user(user)

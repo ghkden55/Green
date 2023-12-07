@@ -59,6 +59,7 @@ public class UserController {
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken
                     = new UsernamePasswordAuthenticationToken(requestDTO.getEmail(), requestDTO.getPassword());
 
+            // anonymousUser = 미인증
             Authentication authentication =  authenticationManager.authenticate(
                     usernamePasswordAuthenticationToken);
 

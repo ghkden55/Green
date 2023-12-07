@@ -65,6 +65,7 @@ public class CartService {
     @Transactional
     public CartResponse.UpdateDTO update(List<CartRequest.UpdateDTO> requestDTO, User user) {
 
+        // 카트에 있는 모든 정보를 가져옴
         List<Cart> cartList = cartRepository.findAllByUserId(user.getId());
 
         List<Long> cartIds = cartList.stream().map(cart -> cart.getId()).collect(Collectors.toList());

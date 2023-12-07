@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @Getter
 public class CustomUserDetails implements UserDetails {
 
+    // 여기 유저 정보가 저장되고 있음
     private final User user;
 
     @Override
