@@ -2,6 +2,7 @@ package com.example.product.option;
 
 import com.example.product.product.Product;
 import com.example.product.product.ProductRepository;
+import com.example.product.product.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,6 +59,16 @@ public class OptionService {
                         .collect(Collectors.toList());
 
         return findAllDTOS;
+    }
+
+
+    @Transactional
+    public void update(OptionResponse.FindByProductIdDTO updateDTO){
+        Optional<Option> optionalOption = optionRepository.findById(updateDTO.getId());
+
+        optionalOption.ifPresent(option -> {
+            option.updateFromDTO(updateDTO);
+        });
     }
 
 

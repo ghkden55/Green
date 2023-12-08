@@ -1,5 +1,6 @@
 package com.example.product.option;
 
+import com.example.product.product.ProductResponse;
 import com.example.product.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +58,13 @@ public class OptionController {
     }
 
 
-    // 옵션 업데이트
+    @PutMapping("/options/update/{id}")
+    public ResponseEntity<?> updateOption(@RequestBody OptionResponse.FindByProductIdDTO updateDTO){
+        optionService.update(updateDTO);
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
+        return ResponseEntity.ok(apiResult);
+
+    }
 
 
     @DeleteMapping("/delete/{id}/options/{optionId}")
