@@ -72,7 +72,7 @@ public class SecurityConfig {
         // 4. jSessionId 사용 거부
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); // 세션 정책
 
-        // 5. form 로긴 해제 (UsernamePasswordAuthenticationFilter 비활성화) (폼 로그인 비활성화)
+        // 5. form 로그인 해제 (UsernamePasswordAuthenticationFilter 비활성화) (폼 로그인 비활성화)
         http.formLogin().disable();
 
         // 6. 로그인 인증창이 뜨지 않게 비활성화(기본 인증 비활성화)
@@ -104,7 +104,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // ** 규칙: 헤더(Authorization), 메서드, IP 주소, 클라이언트으 쿠키 요청을 허용
+    // ** 규칙: 헤더(Authorization), 메서드, IP 주소, 클라이언트의 쿠키 요청을 허용
     public CorsConfigurationSource configurationSource() {
         CorsConfiguration corsConfigurationSource = new CorsConfiguration();
         corsConfigurationSource.addAllowedHeader("*"); // 모든 헤더를 허용
