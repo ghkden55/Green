@@ -23,6 +23,7 @@ public class OrderService {
     private final CartRepository cartRepository;
     private final ItemRepository itemRepository;
 
+    @Transactional
     public OrderResponse.FindByIdDTO save(User user) {
 
         // 장바구니 조회
