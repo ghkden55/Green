@@ -72,7 +72,7 @@ public class CartService {
         List<Long> cartIds = cartList.stream().map(cart -> cart.getId()).collect(Collectors.toList());
         List<Long> requestIds = requestDTO.stream().map(dto -> dto.getCartId()).collect(Collectors.toList());
 
-        if (cartIds.size() == 0) {
+        if (cartIds.size() == 0) { // 자료가 없음
             throw new Exception404("주문 가능한 상품이 없습니다.");
         }
 
@@ -82,7 +82,7 @@ public class CartService {
         }
 
         for (Long requestId : requestIds) {
-            if(!cartIds.contains(requestIds)) {
+            if (!cartIds.contains(requestId)) {
                 throw new Exception400("카트에 없는 상품은 주문할 수 없습니다." + requestId);
             }
         }
@@ -94,6 +94,7 @@ public class CartService {
                 }
             }
         }
+
 
         return new CartResponse.UpdateDTO(cartList);
     }

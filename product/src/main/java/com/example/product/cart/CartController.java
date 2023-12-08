@@ -5,10 +5,7 @@ import com.example.product.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -43,7 +40,7 @@ public class CartController {
 
 
     // 카트 업데이트
-    @GetMapping("/carts/update")
+    @PutMapping("/carts/update")
     public ResponseEntity<?> update(@RequestBody @Valid List<CartRequest.UpdateDTO> requestDTO,
                                    @AuthenticationPrincipal CustomUserDetails customUserDetails,
                                    Error error) {
