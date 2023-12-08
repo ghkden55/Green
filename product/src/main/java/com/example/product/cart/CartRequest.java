@@ -4,12 +4,13 @@ import com.example.product.option.Option;
 import com.example.product.user.User;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 public class CartRequest {
 
     @Getter
     @Setter
-    public class SaveDTO {
+    public static class SaveDTO {
 
         private Long optionId;
 

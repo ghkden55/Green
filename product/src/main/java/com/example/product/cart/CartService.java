@@ -39,10 +39,10 @@ public class CartService {
         // Set<> 동일한 데이터를 묶어줌. 동일한 상품 예외처리
         Set<Long> optionsId = new HashSet<>();
 
-        for (CartRequest.SaveDTO cart : saveDTO) {
-            if(!optionsId.add(cart.getOptionId()));
-            throw new Exception400("이미 동일한 상품 옵션이 있습니다." + cart.getOptionId());
-        }
+//        for (CartRequest.SaveDTO cart : saveDTO) {
+//            if(!optionsId.add(cart.getOptionId()));
+//            throw new Exception400("이미 동일한 상품 옵션이 있습니다." + cart.getOptionId());
+//        }
 
         List<Cart> cartList = saveDTO.stream().map(cartDTO -> {
             Option option = optionRepository.findById(cartDTO.getOptionId()).orElseThrow(
