@@ -15,7 +15,7 @@ public class OptionController {
     private final OptionService optionService;
 
     @PostMapping("/options/save")
-    public ResponseEntity<?> save(@RequestBody OptionResponse.FindByProductIdDTO optionDTO){
+    public ResponseEntity<?> save(@RequestBody OptionRequest.saveDTO optionDTO){
         Option saveProduct = optionService.save(optionDTO);
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(saveProduct);
         return ResponseEntity.ok(apiResult);
@@ -32,6 +32,7 @@ public class OptionController {
      * OptionResponse.FindByProductIdDTO
      * 리스트로 반환.
      */
+
 
     @GetMapping("/products/{id}/options")
     public ResponseEntity<?> findById(@PathVariable Long id) {
@@ -59,7 +60,7 @@ public class OptionController {
 
 
     @PutMapping("/options/{id}")
-    public ResponseEntity<?> updateOption(@RequestBody OptionResponse.FindByProductIdDTO updateDTO){
+    public ResponseEntity<?> updateOption(@RequestBody OptionRequest.updateDTO updateDTO){
         optionService.update(updateDTO);
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
         return ResponseEntity.ok(apiResult);

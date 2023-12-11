@@ -45,7 +45,7 @@ public class Option {
     }
 
 
-    public void updateFromDTO(OptionResponse.FindByProductIdDTO optionDTO){
+    public void updateFromDTO(OptionRequest.updateDTO optionDTO){
         this.optionName = optionDTO.getOptionName();
         this.price = optionDTO.getPrice();
         this.quantity = optionDTO.getQuantity();

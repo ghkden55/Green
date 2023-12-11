@@ -20,7 +20,7 @@ public class OptionService {
     private final OptionRepository optionRepository;
 
     @Transactional
-    public Option save(OptionResponse.FindByProductIdDTO optionDTO) {
+    public Option save(OptionRequest.saveDTO optionDTO) {
 
         Optional<Product> optionalOption = productRepository.findById(optionDTO.getProductId());
 
@@ -63,7 +63,7 @@ public class OptionService {
 
 
     @Transactional
-    public void update(OptionResponse.FindByProductIdDTO updateDTO){
+    public void update(OptionRequest.updateDTO updateDTO){
         Optional<Option> optionalOption = optionRepository.findById(updateDTO.getId());
 
         optionalOption.ifPresent(option -> {
