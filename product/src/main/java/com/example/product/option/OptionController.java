@@ -58,7 +58,7 @@ public class OptionController {
     }
 
 
-    @PutMapping("/options/update/{id}")
+    @PutMapping("/options/{id}")
     public ResponseEntity<?> updateOption(@RequestBody OptionResponse.FindByProductIdDTO updateDTO){
         optionService.update(updateDTO);
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
@@ -67,7 +67,7 @@ public class OptionController {
     }
 
 
-    @DeleteMapping("/delete/{id}/options/{optionId}")
+    @DeleteMapping("/options/{id}/{optionId}")
     public ResponseEntity<?> delete(@PathVariable Long id, @PathVariable Long optionId){
         optionService.delete(id, optionId);
 
