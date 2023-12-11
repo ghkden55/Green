@@ -28,7 +28,6 @@ public class CartService {
         List<Cart> cartList = cartRepository.findAll();
 
         return new CartResponse.FindAllDTO(cartList);
-
     }
 
 
@@ -90,11 +89,10 @@ public class CartService {
         for (CartRequest.UpdateDTO updateDTO : requestDTO) {
             for (Cart cart : cartList) {
                 if (cart.getId() == updateDTO.getCartId()) {
-                    cart.update(updateDTO.getQuantity(), cart.getPrice() * cart.getQuantity());
+                    cart.update(updateDTO.getQuantity(), cart.getOption().getPrice() * updateDTO.getQuantity());
                 }
             }
         }
-
 
         return new CartResponse.UpdateDTO(cartList);
     }
