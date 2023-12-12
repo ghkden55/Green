@@ -98,4 +98,9 @@ public class CartService {
     }
 
 
+    @Transactional
+    public void clear(User user) {
+        cartRepository.deleteAllByUserId(user.getId());
+    }
+
 }

@@ -18,10 +18,9 @@ public class CartController {
 
     // 카트에 상품 추가
     @PostMapping("/carts/add")
-    public ResponseEntity<?> addCartList(
-            @RequestBody @Valid List<CartRequest.SaveDTO> requestDTO,
-            @AuthenticationPrincipal CustomUserDetails customUserDetails, // User의 인정 정보.
-            Error error) {
+    public ResponseEntity<?> addCartList(@RequestBody @Valid List<CartRequest.SaveDTO> requestDTO,
+                                        @AuthenticationPrincipal CustomUserDetails customUserDetails, // User의 인증 정보.
+                                        Error error) {
 
         cartService.addCartList(requestDTO, customUserDetails.getUser());
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
@@ -48,6 +47,14 @@ public class CartController {
         CartResponse.UpdateDTO updateDTO = cartService.update(requestDTO, customUserDetails.getUser());
 
         ApiUtils.ApiResult<?> apiResult = ApiUtils.success(updateDTO);
+        return ResponseEntity.ok(apiResult);
+    }
+
+
+    @DeleteMapping("/carts/clear")
+    public ResponseEntity<?> clear(@AuthenticationPrincipal CustomUserDetails customUserDetails, Error error) {
+        cartService.clear(customUserDetails.getUser());
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
         return ResponseEntity.ok(apiResult);
     }
 
