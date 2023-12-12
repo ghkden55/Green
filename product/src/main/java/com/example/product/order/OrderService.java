@@ -8,12 +8,14 @@ import com.example.product.order.item.Item;
 import com.example.product.order.item.ItemRepository;
 import com.example.product.user.User;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -69,6 +71,7 @@ public class OrderService {
     }
 
 
+    @Transactional
     public void clear() {
         try {
             itemRepository.deleteAll();
