@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="115b77f4-689f-4c39-9588-1cf088b3cb81" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/8.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/modules/ShoppingMall.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/CreateScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/DeleteScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/ReadScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/Scene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Controller/UpdateScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/DAO/MealkitDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/DAO/MealkitDAOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/DTO/MealkitDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/OBJ/Mealkit$MealkitBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/OBJ/Mealkit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/classes/java/main/Service/ScanService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/CreateScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/DeleteScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/ReadScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/Scene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Controller/UpdateScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/DAO/MealkitDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/DAO/MealkitDAOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/DTO/MealkitDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/OBJ/Mealkit$MealkitBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/OBJ/Mealkit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/out/production/classes/Service/ScanService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/CreateScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/DeleteScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/ReadScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/Scene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Controller/UpdateScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/DAO/MealkitDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/DAO/MealkitDAOImplement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/DTO/MealkitDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/OBJ/Mealkit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingMall/src/main/java/Service/ScanService.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2WZjq3CZaLuI7irbvMJNSlVNk31" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/G/Desktop/HwangDooHyeon/mealkit",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ShoppingMall.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="115b77f4-689f-4c39-9588-1cf088b3cb81" name="변경" comment="" />
+      <created>1696947185051</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696947185051</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
